@@ -200,7 +200,7 @@ Set<T>& Set<T>::operator=(const Set<T>& rhs)
 	if (this != &rhs)
 	{
 		this->~GenericArray();
-		if (ref.data == nullptr)
+		if (rhs.data == nullptr)
 		{
 			this->capacity = 0;
 			data = nullptr;
