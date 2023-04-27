@@ -1,4 +1,4 @@
-#ifndef LSLL_H
+#ifndef LSLL_H  //Linear Single Link List
 #define LSLL_H
 
 #include <iostream>
@@ -20,6 +20,7 @@ struct Node
     }
 };
 
+//Linear Single Link List(LSLL)
 template <typename T>
 class LSLL
 {
