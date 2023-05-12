@@ -134,7 +134,7 @@ int main()
 			tree.printAncestors(node);
 			break;
 		case 17:
-			cout << "Number of nodes: " << tree.countTreeNodes() << endl;
+			cout << "Number of nodes: " << tree.countNodes() << endl;
 			break;
 		case 18:
 			cout << "Enter key: ";
