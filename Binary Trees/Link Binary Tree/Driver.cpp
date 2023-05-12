@@ -24,7 +24,6 @@ void Menu()
 	cout << "\t\t\t\t15. Print Decendants" << endl;
 	cout << "\t\t\t\t16. Print Ancestors" << endl;
 	cout << "\t\t\t\t17. Count Nodes" << endl;
-	cout << "\t\t\t\t18. Count Nodes Of Tree" << endl;
 	cout << "\t\t\t\t19. Search" << endl;
 	cout << "\t\t\t\t20. Exit" << endl;
 }
@@ -119,7 +118,7 @@ int main()
 		case 13:
 			cout << "Enter node: ";
 			cin >> node;
-			cout << "Height: " << tree.getHeight(tree.searchNode(node)) << endl;
+			cout << "Height: " << tree.getHeight(node) << endl;
 			break;
 		case 14:
 			cout << "Tree height: " << tree.getTreeHeight() << endl;
@@ -127,35 +126,30 @@ int main()
 		case 15:
 			cout << "Enter node: ";
 			cin >> node;
-			tree.printDescendants(tree.searchNode(node), node);
+			tree.printDescendants(node);
 			break;
 		case 16:
 			cout << "Enter node: ";
 			cin >> node;
-			tree.printAncestors(tree.searchNode(node), node);
+			tree.printAncestors(node);
 			break;
 		case 17:
-			cout << "Enter node: ";
-			cin >> node;
-			cout << "Number of nodes: " << tree.countNodes(tree.searchNode(node)) << endl;
-			break;
-		case 18:
 			cout << "Number of nodes: " << tree.countTreeNodes() << endl;
 			break;
-		case 19:
+		case 18:
 			cout << "Enter key: ";
 			cin >> key;
-			if (tree.searchNode(key))
+			if (tree.search(key))
 				cout << "Found" << endl;
 			else
 				cout << "Not found" << endl;
 			break;
-		case 20:
+		case 19:
 			break;
 		default:
 			cout << "Invalid choice\n";
 		}
 		system("pause");
 		system("cls");
-	} while (choice != 20);
+	} while (choice != 19);
 }
