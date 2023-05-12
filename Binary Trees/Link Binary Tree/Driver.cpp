@@ -7,25 +7,26 @@ using namespace std;
 
 void Menu()
 {
-	cout << "1. Set Root" << endl;
-	cout << "2. Set Left Child" << endl;
-	cout << "3. Set Right Child" << endl;
-	cout << "4. Get Root" << endl;
-	cout << "5. Get Left Child" << endl;
-	cout << "6. Get Right Child" << endl;
-	cout << "7. Get Parent" << endl;
-	cout << "8. Remove" << endl;
-	cout << "9. Is Empty" << endl;
-	cout << "10. Preorder Traversal" << endl;
-	cout << "11. Inorder Traversal" << endl;
-	cout << "12. Postorder Traversal" << endl;
-	cout << "13. Get Height" << endl;
-	cout << "14. Get Tree Height" << endl;
-	cout << "15. Print Decendants" << endl;
-	cout << "16. Print Ancestors" << endl;
-	cout << "17. Count Nodes" << endl;
-	cout << "18. Search" << endl;
-	cout << "19. Exit" << endl;
+	cout << "\t\t\t\t1. Set Root" << endl;
+	cout << "\t\t\t\t2. Set Left Child" << endl;
+	cout << "\t\t\t\t3. Set Right Child" << endl;
+	cout << "\t\t\t\t4. Get Root" << endl;
+	cout << "\t\t\t\t5. Get Left Child" << endl;
+	cout << "\t\t\t\t6. Get Right Child" << endl;
+	cout << "\t\t\t\t7. Get Parent" << endl;
+	cout << "\t\t\t\t8. Remove" << endl;
+	cout << "\t\t\t\t9. Is Empty" << endl;
+	cout << "\t\t\t\t10. Preorder Traversal" << endl;
+	cout << "\t\t\t\t11. Inorder Traversal" << endl;
+	cout << "\t\t\t\t12. Postorder Traversal" << endl;
+	cout << "\t\t\t\t13. Get Height" << endl;
+	cout << "\t\t\t\t14. Get Tree Height" << endl;
+	cout << "\t\t\t\t15. Print Decendants" << endl;
+	cout << "\t\t\t\t16. Print Ancestors" << endl;
+	cout << "\t\t\t\t17. Count Nodes" << endl;
+	cout << "\t\t\t\t18. Count Nodes Of Tree" << endl;
+	cout << "\t\t\t\t19. Search" << endl;
+	cout << "\t\t\t\t20. Exit" << endl;
 }
 
 int main()
@@ -71,6 +72,9 @@ int main()
 			cin >> child;
 			tree.setRightChild(parent, child);
 			break;
+		case 4:
+			cout << "Root: " << tree.getRoot() << endl;
+			break;
 		case 5:
 			cout << "Enter parent: ";
 			cin >> parent;
@@ -86,47 +90,6 @@ int main()
 			cin >> node;
 			cout << "Parent: " << tree.getParent(node) << endl;
 			break;
-		case 4:
-			cout << "Root: " << tree.getRoot() << endl;
-			break;
-		case 18:
-			cout << "Enter key: ";
-			cin >> key;
-			cout << "Node: " << tree.search(key) << endl;
-			break;
-		case 16:
-			cout << "Enter node: ";
-			cin >> node;
-			tree.printAncestors(node);
-			break;
-		case 15:
-			cout << "Enter node: ";
-			cin >> node;
-			tree.printDescendants(node);
-			break;
-		case 13:
-			cout << "Enter node: ";
-			cin >> node;
-			cout << "Height: " << tree.getHeight(node) << endl;
-			break;
-		case 14:
-			cout << "Tree height: " << tree.getTreeHeight() << endl;
-			break;
-		case 11:
-			cout << "Inorder traversal: ";
-			tree.inOrderTraversal();
-			cout << endl;
-			break;
-		case 10:
-			cout << "Preorder traversal: ";
-			tree.preOrderTraversal();
-			cout << endl;
-			break;
-		case 12:
-			cout << "Postorder traversal: ";
-			tree.postOrderTraversal();
-			cout << endl;
-			break;
 		case 8:
 			cout << "Enter node: ";
 			cin >> node;
@@ -138,15 +101,61 @@ int main()
 			else
 				cout << "Tree is not empty\n";
 			break;
+		case 10:
+			cout << "Preorder traversal: ";
+			tree.preOrderTraversal();
+			cout << endl;
+			break;
+		case 11:
+			cout << "Inorder traversal: ";
+			tree.inOrderTraversal();
+			cout << endl;
+			break;
+		case 12:
+			cout << "Postorder traversal: ";
+			tree.postOrderTraversal();
+			cout << endl;
+			break;
+		case 13:
+			cout << "Enter node: ";
+			cin >> node;
+			cout << "Height: " << tree.getHeight(tree.searchNode(node)) << endl;
+			break;
+		case 14:
+			cout << "Tree height: " << tree.getTreeHeight() << endl;
+			break;
+		case 15:
+			cout << "Enter node: ";
+			cin >> node;
+			tree.printDescendants(tree.searchNode(node), node);
+			break;
+		case 16:
+			cout << "Enter node: ";
+			cin >> node;
+			tree.printAncestors(tree.searchNode(node), node);
+			break;
 		case 17:
-			cout << "Number of nodes: " << tree.countNodes() << endl;
+			cout << "Enter node: ";
+			cin >> node;
+			cout << "Number of nodes: " << tree.countNodes(tree.searchNode(node)) << endl;
+			break;
+		case 18:
+			cout << "Number of nodes: " << tree.countTreeNodes() << endl;
 			break;
 		case 19:
+			cout << "Enter key: ";
+			cin >> key;
+			if (tree.searchNode(key))
+				cout << "Found" << endl;
+			else
+				cout << "Not found" << endl;
+			break;
+		case 20:
 			break;
 		default:
 			cout << "Invalid choice\n";
 		}
 		system("pause");
 		system("cls");
-	} while (choice != 19);
+	} while (choice != 20);
 }
