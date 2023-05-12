@@ -24,8 +24,8 @@ void Menu()
 	cout << "\t\t\t\t15. Print Decendants" << endl;
 	cout << "\t\t\t\t16. Print Ancestors" << endl;
 	cout << "\t\t\t\t17. Count Nodes" << endl;
-	cout << "\t\t\t\t19. Search" << endl;
-	cout << "\t\t\t\t20. Exit" << endl;
+	cout << "\t\t\t\t18. Search" << endl;
+	cout << "\t\t\t\t19. Exit" << endl;
 }
 
 int main()
